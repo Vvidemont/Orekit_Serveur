@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>hohmann-transfer</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <!-- Parent Spring Boot -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.4</version> <!-- dernière version stable -->
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- Import du BOM Hipparchus (tu peux le garder si besoin) -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.hipparchus</groupId>
+                <artifactId>hipparchus</artifactId>
+                <version>4.0.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- Spring Boot Web (pour REST API) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Orekit -->
+        <dependency>
+            <groupId>org.orekit</groupId>
+            <artifactId>orekit</artifactId>
+            <version>13.0.3</version>
+        </dependency>
+
+        <!-- (Optionnel) Modules Hipparchus -->
+        <dependency>
+            <groupId>org.hipparchus</groupId>
+            <artifactId>hipparchus-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hipparchus</groupId>
+            <artifactId>hipparchus-geometry</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hipparchus</groupId>
+            <artifactId>hipparchus-ode</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hipparchus</groupId>
+            <artifactId>hipparchus-fitting</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hipparchus</groupId>
+            <artifactId>hipparchus-optim</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hipparchus</groupId>
+            <artifactId>hipparchus-stat</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hipparchus</groupId>
+            <artifactId>hipparchus-filtering</artifactId>
+        </dependency>
+
+        <!-- Tests (optionnel) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Plugin Spring Boot -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
