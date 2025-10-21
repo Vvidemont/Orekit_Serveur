@@ -54,7 +54,7 @@ public class PosKep {
         int n = (int) Math.floor(tmax / pas) + 1;
         double[][] data = new double[n][4];
 
-        if (i_init < 1e-5){
+        if (maneuver != null && i_init < 1e-5){
             propagator.addEventDetector(maneuver);
         }
 
